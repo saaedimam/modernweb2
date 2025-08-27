@@ -1,0 +1,250 @@
+You are a Principal Front-End Architect working inside Replit. Deliver a $10k-grade corporate website (no e-commerce) with elite polish, reliability, and documentation. Use React + Vite + TypeScript + Tailwind CSS. Implement full UX system, animation, PWA, i18n, accessibility, testing, analytics, and a pluggable Stocks page (DSE/CSE) with a clean API adapter and mocks. Make sensible decisions; do NOT ask questions. Auto-fix lint/type/runtime issues and re-run until clean. Each file has exactly one default export.
+
+––––––––––––––––––––––––––––––––––––––––
+PROJECT BRIEF
+Brand: Kattali Textile Ltd (KTL)
+Goal: Executive-grade corporate site: speed, accessibility, modern UI, thought leadership.
+Primary pages: Home, About, Products, Manufacturing, Sustainability, Gallery, Stocks, Contact.
+Core features: Product filtering; reviews/ratings; dynamic pricing calculator; newsletter; social share; multilingual (en, bn); PWA (installable + offline); dark mode; advanced SEO (schema, OG, sitemaps); analytics; basic A/B test harness; error boundaries + observability.
+Constraints: No checkout. Must look like a premium Next.js site but built with React+Vite.
+Deliverables: Source, tests, Storybook, docs, performance & a11y budgets, Replit deploy config.
+
+TECH STACK
+- React 18 + TypeScript + Vite
+- Tailwind CSS + PostCSS + Autoprefixer
+- React Router DOM
+- Zustand (light app state)
+- Axios (API)
+- Lucide-react (icons)
+- Framer-motion (micro-interactions)
+- i18next + react-i18next (i18n: en, bn)
+- Vite PWA plugin (PWA + offline cache)
+- dayjs (dates)
+- ESLint + Prettier
+- Vitest + @testing-library/react + jsdom (unit/integration tests)
+- Playwright (e2e smoke)
+- Storybook (component QA)
+- Sentry (optional placeholder wiring) + basic web-vitals logging
+
+SETUP COMMANDS
+- npm create vite@latest ktl-site -- --template react-ts
+- cd ktl-site
+- npm i react-router-dom axios zustand lucide-react framer-motion i18next react-i18next dayjs
+- npm i -D tailwindcss postcss autoprefixer vite-plugin-pwa eslint prettier eslint-config-prettier eslint-plugin-react eslint-plugin-react-hooks @typescript-eslint/eslint-plugin @typescript-eslint/parser vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom playwright @playwright/test storybook @storybook/react-vite @storybook/testing-react @types/node
+- npx tailwindcss init -p
+- npx playwright install
+- npx storybook init
+
+CONFIG REQUIREMENTS
+- tsconfig.json: "strict": true, "baseUrl": ".", "paths": {"@/*": ["src/*"]}
+- tailwind.config.js content: ["./index.html","./src/**/*.{ts,tsx}"]
+- vite.config.ts: add PWA plugin (manifest + caching), resolve alias "@"
+- .replit:
+  run = "npm run dev"
+  entrypoint = "index.html"
+- package.json scripts:
+  "dev": "vite",
+  "build": "tsc -b && vite build",
+  "preview": "vite preview --port 4173",
+  "lint": "eslint . --ext .ts,.tsx",
+  "format": "prettier -w .",
+  "test": "vitest run",
+  "test:ui": "vitest",
+  "e2e": "playwright test",
+  "storybook": "storybook dev -p 6006",
+  "storybook:build": "storybook build"
+
+FILE TREE (CREATE EXACTLY)
+.
+├─ index.html
+├─ .replit
+├─ vite.config.ts
+├─ tsconfig.json
+├─ tailwind.config.js
+├─ postcss.config.js
+├─ public/
+│  ├─ favicon.svg
+│  ├─ og.jpg                         (1200×630 placeholder)
+│  ├─ stocks.mock.json               (DSE/CSE example rows)
+│  └─ icons/                         (pwa icons)
+├─ src/
+│  ├─ main.tsx
+│  ├─ App.tsx
+│  ├─ index.css
+│  ├─ router.tsx
+│  ├─ a11y.ts                        (focus-visible helpers, skip-link)
+│  ├─ i18n/
+│  │  ├─ index.ts
+│  │  ├─ en.json
+│  │  └─ bn.json
+│  ├─ types/
+│  │  └─ index.ts
+│  ├─ lib/
+│  │  ├─ api.ts                      (axios + stocks adapter + timeouts)
+│  │  ├─ pricing.ts                  (fabric map + calculator)
+│  │  ├─ utils.ts                    (cn, currency, debounce, clamp)
+│  │  ├─ analytics.ts                (web-vitals + basic event API)
+│  │  └─ ab.ts                       (simple A/B toggle via localStorage)
+│  ├─ store/
+│  │  └─ ui.ts                       (theme, locale, toasts)
+│  ├─ data/
+│  │  ├─ products.ts                 (seed across categories)
+│  │  └─ fabrics.ts                  (FabricKey list + prices)
+│  ├─ components/
+│  │  ├─ layout/
+│  │  │  ├─ Header.tsx
+│  │  │  ├─ Footer.tsx
+│  │  │  └─ Section.tsx
+│  │  ├─ ui/
+│  │  │  ├─ Button.tsx
+│  │  │  ├─ Card.tsx
+│  │  │  ├─ Input.tsx
+│  │  │  ├─ Select.tsx
+│  │  │  └─ Toast.tsx
+│  │  ├─ Hero.tsx
+│  │  ├─ ProductFilter.tsx
+│  │  ├─ Reviews.tsx
+│  │  ├─ PricingCalculator.tsx
+│  │  ├─ NewsletterForm.tsx
+│  │  ├─ SocialShare.tsx
+│  │  └─ LanguageSwitcher.tsx
+│  ├─ pages/
+│  │  ├─ Home.tsx
+│  │  ├─ About.tsx
+│  │  ├─ Products.tsx
+│  │  ├─ Manufacturing.tsx
+│  │  ├─ Sustainability.tsx
+│  │  ├─ Gallery.tsx
+│  │  ├─ Stocks.tsx
+│  │  └─ Contact.tsx
+│  ├─ seo/
+│  │  ├─ robots.txt
+│  │  └─ sitemap.xml
+│  ├─ error/
+│  │  ├─ ErrorBoundary.tsx
+│  │  └─ NotFound.tsx
+│  ├─ pwa/
+│  │  ├─ manifest.webmanifest
+│  │  └─ sw.ts                       (generated by plugin, custom runtime routes)
+│  ├─ styles/
+│  │  ├─ tokens.css                  (design tokens via CSS vars)
+│  │  └─ themes.css                  (light/dark)
+│  ├─ __tests__/
+│  │  ├─ app.spec.tsx
+│  │  └─ components.spec.tsx
+│  └─ stories/
+│     ├─ Card.stories.tsx
+│     ├─ ProductFilter.stories.tsx
+│     └─ Reviews.stories.tsx
+└─ README.md
+
+INDEX.HTML
+- <html lang="en">; meta viewport; theme-color; canonical; OG/Twitter tags (og:image=/og.jpg)
+- Include JSON-LD (Organization + WebSite with SearchAction)
+- Immediate skip-link
+- <script type="module" src="/src/main.tsx" defer></script>  // NOTE: leading slash REQUIRED
+
+THEMING & DESIGN SYSTEM
+- tokens.css: spacing, radii, shadows, z-index, transitions, brand colors (primary #B00420, accent #00A3B4, ink #0B1F3A), semantic colors (bg, surface, text)
+- themes.css: [data-theme="light"|"dark"] CSS vars; auto-respect prefers-color-scheme; toggle in store/ui.ts
+- Typography scale; fluid headings; consistent line-height; Tailwind plugin config update if needed
+
+ACCESSIBILITY
+- All interactive elements keyboard reachable; :focus-visible rings
+- aria-live="polite" toasts; correct aria-expanded for menus/accordions
+- Form labels + descriptions + error text; input id/for pairing
+- Images have alt; decorative use alt=""
+
+I18N
+- i18next setup with language detector (fallback en); resource files en.json and bn.json
+- LanguageSwitcher switches locale; remember in localStorage
+- Update SEO title/description via route meta with translation (minimum Home/About)
+
+ANIMATIONS
+- Framer-motion: subtle hero entrance, card hover elevation, toast slide-in
+- Respect prefers-reduced-motion: disable fancy transitions
+
+LIB DETAILS
+- api.ts: axios instance; fetchStocks(): try GET "/api/stocks.json" with 8s timeout via AbortController. On failure, return public/stocks.mock.json. Adapter maps to StockRow {symbol,name,price,changePct,exchange,updated}.
+- pricing.ts: fabricPrices: Record<FabricKey, number>; calculatePrice(qty, fabric) with numeric guards; export format helpers.
+- analytics.ts: simple wrapper logging web-vitals and custom events (page_view, cta_click)
+- ab.ts: getVariant(key, choices[]): sticky assignment via localStorage
+
+COMPONENTS
+- Header: sticky; logo; nav links; mobile drawer (aria-expanded, focus trap); LanguageSwitcher; theme toggle
+- Footer: company info; social links; legal links; dynamic year
+- ProductFilter: controlled <Select> for All/fabric/knit/woven/denim/accessory; grid of Card; prop items: Product[]
+- Reviews: local state Review[]; form with rating 1–5 stars; optimistic add; time-ago via dayjs
+- PricingCalculator: quantity + fabric select (FabricKey); total displays in BDT with thousands separators; validation + error text
+- NewsletterForm: email + consent checkbox; basic regex; on success show Toast; no real backend
+- SocialShare: copy link + open share windows (X/Facebook/LinkedIn)
+- LanguageSwitcher: toggles en/bn
+- Toast: aria-live region; auto-dismiss
+
+PAGES
+- Home: Hero + key stats + ProductFilter + mini features row + CTA to Contact
+- About: banner, timeline, leadership highlights
+- Products: ProductFilter + Reviews bound to selected product
+- Manufacturing: process steps, equipment highlights, QC badges
+- Sustainability: pillars, certifications, impact metrics
+- Gallery: responsive grid; modal lightbox (esc closes)
+- Stocks: search box + exchange filter (All/DSE/CSE); table with Name, Symbol, Price, Change %, Exchange, Updated; loading+error states; poll every 60s (cleanup on unmount)
+- Contact: Name/Email/Message; client validation; mailto fallback
+
+ROUTER
+- React Router with routes "/", "/about", "/products", "/manufacturing", "/sustainability", "/gallery", "/stocks", "/contact"
+- ScrollToTop on navigation
+- ErrorBoundary wraps routes; NotFound route
+
+PWA
+- Manifest with app name, icons; offline caching for routes/assets; network-first for /api/stocks.json with fallback to mock
+- Add install prompt UI (optional) and update available toast
+
+SEO
+- robots.txt (allow all; Sitemap: /sitemap.xml)
+- sitemap.xml (routes listed; lastmod at build time)
+- Per-page <title> and <meta name="description"> via a small SEO component
+- JSON-LD in index.html
+- OG/Twitter image points to /og.jpg
+
+TESTING
+- Vitest + RTL unit tests for core components (Card, ProductFilter, Reviews)
+- Playwright e2e: loads Home, navigates to Stocks, filters DSE, asserts table rows > 0 (using mock)
+- Storybook stories for key components; include a11y checks via addon-a11y if available
+
+QUALITY GATES & BUDGETS
+- ESLint/Prettier: zero errors
+- TypeScript strict: zero errors, no implicit any
+- Lighthouse targets (desktop): Performance ≥ 90, A11y ≥ 95, Best Practices ≥ 90, SEO ≥ 95
+- Bundle guard: initial JS ≤ 180 KB gzip (exclude polyfills & dev deps); code-split where needed
+
+SECURITY & STABILITY
+- Avoid eval and dangerous HTML; sanitize if needed
+- Set security headers documentation in README (Replit reverse proxy note)
+- ErrorBoundary catches runtime errors; log to console and analytics stub
+
+STOCKS INTEGRATION NOTES
+- Fetch from "/api/stocks.json" (pluggable). Document in README how to replace with a real DSE/CSE feed or your own proxy, maintaining the StockRow shape. Provide stocks.mock.json example data.
+
+DOCUMENTATION (README.md)
+- Overview, tech stack, scripts, file structure
+- How to change brand/theme tokens
+- How to add content and locales
+- How to replace Stocks API with real endpoint
+- Testing & Storybook instructions
+- PWA behavior & limits
+- Accessibility checklist
+- Performance optimization notes
+- Deployment on Replit (dev/build/preview)
+
+FINALIZE & VERIFY (AUTOMATE)
+1) Install deps; run dev; auto-fix any errors.
+2) Run "npm run build" then "npm run preview" and verify routes.
+3) Run "npm test" and "npm run e2e" (headless) and Storybook build.
+4) Emit a short QA report: a) pages rendered b) Lighthouse scores (approx) c) test summary d) how to swap Stocks API.
+
+GUARDRAILS
+- Use “/src/main.tsx” with a LEADING SLASH in index.html
+- No duplicate component declarations; one default export per file
+- Use Set (not "set") when needed; avoid common typos
+- Keep console clean in production
