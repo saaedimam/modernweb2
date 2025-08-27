@@ -1,0 +1,171 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "submit": "Submit",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "none": "None",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "manufacturing": "Manufacturing",
+    "sustainability": "Sustainability",
+    "gallery": "Gallery",
+    "stocks": "Stocks",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Future of Textile Manufacturing",
+    "subtitle": "Leading the industry with sustainable practices, cutting-edge technology, and premium quality fabrics that define tomorrow's fashion.",
+    "cta_explore": "Explore Products",
+    "cta_watch": "Watch Story"
+  },
+  "products": {
+    "title": "Premium Product Range",
+    "subtitle": "Discover our extensive collection of high-quality fabrics, from luxury textiles to sustainable materials for every application.",
+    "categories": {
+      "cotton": "Cotton",
+      "silk": "Silk",
+      "wool": "Wool",
+      "synthetic": "Synthetic",
+      "eco_friendly": "Eco-Friendly"
+    },
+    "pricing_calculator": "Dynamic Pricing Calculator",
+    "bulk_discount": "Bulk Discount",
+    "unit_price": "Unit Price",
+    "total_price": "Total Price"
+  },
+  "about": {
+    "title": "Crafting Excellence Since 1970",
+    "subtitle": "From humble beginnings to industry leadership, our journey represents five decades of innovation, quality, and sustainable manufacturing practices.",
+    "timeline": {
+      "1970": {
+        "title": "Foundation",
+        "description": "Started with a single loom and a vision to transform the textile industry"
+      },
+      "1995": {
+        "title": "Global Expansion", 
+        "description": "Established partnerships with leading fashion brands across Europe and North America"
+      },
+      "2020": {
+        "title": "Sustainability Focus",
+        "description": "Pioneered sustainable manufacturing processes, becoming carbon neutral"
+      }
+    },
+    "values": {
+      "excellence": "Excellence",
+      "sustainability": "Sustainability", 
+      "people_first": "People First",
+      "innovation": "Innovation"
+    }
+  },
+  "manufacturing": {
+    "title": "Advanced Manufacturing",
+    "subtitle": "State-of-the-art facilities powered by Industry 4.0 technologies, ensuring precision, quality, and efficiency at every step.",
+    "process_steps": {
+      "raw_material": "Raw Material",
+      "processing": "Processing",
+      "quality_control": "Quality Control",
+      "delivery": "Delivery"
+    },
+    "equipment": {
+      "smart_looms": "Smart Looms",
+      "vision_systems": "Vision Systems",
+      "data_analytics": "Data Analytics"
+    }
+  },
+  "sustainability": {
+    "title": "Sustainable Future",
+    "subtitle": "Leading the textile industry towards a sustainable future through innovative practices, renewable energy, and circular economy principles.",
+    "pillars": {
+      "circular_economy": "Circular Economy",
+      "clean_energy": "Clean Energy",
+      "social_impact": "Social Impact"
+    },
+    "goals_2030": "2030 Sustainability Goals"
+  },
+  "stocks": {
+    "title": "Stock Market Data",
+    "subtitle": "Real-time stock prices from Dhaka Stock Exchange (DSE) and Chittagong Stock Exchange (CSE) with advanced filtering and analytics.",
+    "refresh": "Refresh",
+    "exchange": "Exchange",
+    "price": "Price",
+    "change": "Change",
+    "updated": "Updated"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Ready to start your next project? Contact our team of experts to discuss your textile needs and discover how we can bring your vision to life.",
+    "form": {
+      "first_name": "First Name",
+      "last_name": "Last Name", 
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "inquiry_type": "Inquiry Type",
+      "message": "Message",
+      "send_message": "Send Message"
+    },
+    "inquiry_types": {
+      "quote": "Request Quote",
+      "partnership": "Partnership",
+      "sustainability": "Sustainability",
+      "other": "Other"
+    },
+    "offices": {
+      "head_office": "Head Office",
+      "corporate_office": "Corporate Office"
+    },
+    "quick_contact": {
+      "sales_hotline": "Sales Hotline",
+      "email": "Email",
+      "business_hours": "Business Hours"
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Subscribe to our newsletter for the latest updates on products and sustainability initiatives.",
+      "subscribe": "Subscribe"
+    },
+    "quick_links": "Quick Links",
+    "services": "Services",
+    "contact_info": "Contact Info",
+    "copyright": "© 2024 Kattali Textile Ltd. All rights reserved."
+  },
+  "reviews": {
+    "title": "Customer Reviews",
+    "subtitle": "What our global partners say about our products and services.",
+    "share_experience": "Share Your Experience",
+    "rating": "Rating",
+    "submit_review": "Submit Review"
+  },
+  "newsletter": {
+    "subscribe": "Subscribe",
+    "email_placeholder": "Enter your email",
+    "consent": "I agree to receive newsletters and updates about products and sustainability initiatives.",
+    "success": "Successfully subscribed!"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "description": "The page you're looking for doesn't exist or has been moved.",
+      "go_home": "Go to Homepage",
+      "go_back": "Go Back"
+    },
+    "boundary": {
+      "title": "Something went wrong",
+      "description": "We're sorry, but something unexpected happened. This error has been logged and we'll investigate it promptly.",
+      "try_again": "Try Again"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="theme-color" content="#96d873" />
+    <meta name="description" content="Leading textile manufacturer specializing in premium fabrics, sustainable production, and innovative manufacturing solutions." />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://kattalitextile.com" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kattalitextile.com/" />
+    <meta property="og:title" content="Kattali Textile Ltd - Premium Textile Manufacturing" />
+    <meta property="og:description" content="Leading textile manufacturer specializing in premium fabrics, sustainable production, and innovative manufacturing solutions." />
+    <meta property="og:image" content="/og.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://kattalitextile.com/" />
+    <meta property="twitter:title" content="Kattali Textile Ltd - Premium Textile Manufacturing" />
+    <meta property="twitter:description" content="Leading textile manufacturer specializing in premium fabrics, sustainable production, and innovative manufacturing solutions." />
+    <meta property="twitter:image" content="/og.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <title>Kattali Textile Ltd - Premium Textile Manufacturing</title>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Kattali Textile Ltd",
+      "url": "https://kattalitextile.com",
+      "logo": "https://kattalitextile.com/favicon.svg",
+      "description": "Leading textile manufacturer specializing in premium fabrics, sustainable production, and innovative manufacturing solutions.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kattali Industrial Area",
+        "addressLocality": "Chittagong",
+        "postalCode": "4000",
+        "addressCountry": "BD"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+880-31-2345678",
+        "contactType": "customer service"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://kattalitextile.com/products?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/src/pwa/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-primary-foreground px-4 py-2 rounded-md z-50">
+        Skip to main content
+    </a>
+    
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
+    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+  </body>
+</html>

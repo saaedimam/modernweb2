@@ -1,0 +1,56 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kattalitextile.com/sitemap.xml
+
+# Preferred domain
+Host: https://kattalitextile.com
+
+# Crawl delay (optional - 1 second delay between requests)
+Crawl-delay: 1
+
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block access to admin/internal areas (if any exist in future)
+Disallow: /admin/
+Disallow: /api/internal/
+Disallow: /*.json$
+
+# Allow important files
+Allow: /favicon.svg
+Allow: /manifest.json
+Allow: /og.jpg
+
+# Block common non-essential files
+Disallow: /*.log$
+Disallow: /temp/
+Disallow: /cache/
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block malicious bots (common ones)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Note: This robots.txt allows most legitimate crawlers while blocking
+# some resource-intensive bots. Adjust based on your specific needs.
