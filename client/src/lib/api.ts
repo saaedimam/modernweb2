@@ -58,8 +58,8 @@ function adaptStockData(data: any[]): StockRow[] {
 // Fetch stock data with fallback to mock data
 export async function fetchStocks(): Promise<StockRow[]> {
   try {
-    // Try to fetch from API endpoint first
-    const data = await apiRequest<any[]>('/api/stocks.json');
+    // Try to fetch from Vercel API endpoint first
+    const data = await apiRequest<any[]>('/api/stocks');
     return adaptStockData(data);
   } catch (error) {
     console.warn('Failed to fetch live stock data, using mock data:', error);
@@ -87,22 +87,26 @@ export async function fetchStocks(): Promise<StockRow[]> {
 
 // Submit contact form
 export async function submitContactForm(data: any): Promise<{ success: boolean; message: string }> {
-  // Since there's no real backend, simulate form submission
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
-  return {
-    success: true,
-    message: 'Your message has been sent successfully. We will get back to you soon!'
-  };
+  try {
+    const response = await apiRequest<{ success: boolean; message: string }>('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    return response;
+  } catch (error) {
+    throw new Error(error instanceof Error ? error.message : 'Failed to submit form');
+  }
 }
 
 // Subscribe to newsletter
 export async function subscribeNewsletter(email: string): Promise<{ success: boolean; message: string }> {
-  // Simulate newsletter subscription
-  await new Promise(resolve => setTimeout(resolve, 800));
-  
-  return {
-    success: true,
-    message: 'Successfully subscribed to our newsletter!'
-  };
+  try {
+    const response = await apiRequest<{ success: boolean; message: string }>('/api/newsletter', {
+      method: 'POST',
+      body: JSON.stringify({ email }),
+    });
+    return response;
+  } catch (error) {
+    throw new Error(error instanceof Error ? error.message : 'Failed to subscribe');
+  }
 }
